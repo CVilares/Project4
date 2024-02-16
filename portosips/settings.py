@@ -31,7 +31,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['8000-cvilares-project4-pb0stdvptx4.ws-eu108.gitpod.io', 'portosips-f350ecb855c2.herokuapp.com' ]
+ALLOWED_HOSTS = ['8000-cvilares-project4-asro0e0dipi.ws-eu108.gitpod.io', 'portosips-f350ecb855c2.herokuapp.com' ]
 
 
 # Application definition

@@ -1,9 +1,13 @@
-from django.shortcuts import render, get_object_or_404, redirect
-from django.contrib.auth.decorators import login_required
-from .forms import PostForm
+from django.shortcuts import render, redirect, get_object_or_404, reverse
 from django.views import generic, View
-from .models import Post
-from.forms import CommentForm
+from django.http import HttpResponseRedirect, Http404
+from django.contrib import messages
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.messages.views import SuccessMessageMixin
+from django.urls import reverse_lazy
+from .models import Post, Comment
+# MostLikedPosts
+from .forms import CommentForm, PostForm
 
 class PostList(generic.ListView):
     model = Post
@@ -39,15 +43,19 @@ class PostDetail(View):
 
 
 
-@login_required
-def add_post(request):
-    if request.method == 'POST':
-        form = PostForm(request.POST)
-        if form.is_valid():
-            post = form.save(commit=False)
-            post.author = request.user  # Define o autor como o usuário atual
-            post.save()
-            return redirect('home')  # Redireciona para a página inicial após a adição do post
-    else:
-        form = PostForm()
-    return render(request, 'add_post.html', {'form': form})
+class AddPost(LoginRequiredMixin,
+              generic.CreateView):
+    """
+    To add a post and get a feddback message.
+    """
+    model = Post
+    template_name = 'add_post.html'
+    form_class = PostForm
+    success_message = 'Post added and waiting for approval!'
+
+    def form_valid(self, form):
+        if self.request.POST.get('status'):
+            form.instance.status = int(self.request.POST.get('status'))
+        form.instance.author = self.request.user
+        messages.info(self.request, "Post added and waiting for approval")
+        return super().form_valid(form)
