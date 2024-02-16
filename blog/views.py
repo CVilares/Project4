@@ -44,25 +44,41 @@ class PostDetail(View):
         )
 
     def post(self, request, slug, *args, **kwargs):
-        if request.user.is_authenticated:
-            queryset = Post.objects.filter(status=1)
-            post = get_object_or_404(queryset, slug=slug)
-            comment_form = CommentForm(data=request.POST)
-            if comment_form.is_valid():
-                comment = comment_form.save(commit=False)
-                comment.post = post
-                comment.name = request.user
-                comment.save()
-                messages.success(request, 'Comment added successfully!')
-            else:
-                comment_form = CommentForm()
-        return HttpResponseRedirect(reverse('post_detail', args=[slug]))
+
+        queryset = Post.objects.filter(status=1)
+        post = get_object_or_404(queryset, slug=slug)
+        comments = post.comments.filter(approved=True).order_by("-created_on")
+        liked = False
+        if post.likes.filter(id=self.request.user.id).exists():
+            liked = True
+
+        comment_form = CommentForm(data=request.POST)
+        if comment_form.is_valid():
+            comment_form.instance.email = request.user.email
+            comment_form.instance.name = request.user.username
+            comment = comment_form.save(commit=False)
+            comment.post = post
+            comment.save()
+        else:
+            comment_form = CommentForm()
+
+        return render(
+            request,
+            "post_detail.html",
+            {
+                "post": post,
+                "comments": comments,
+                "commented": True,
+                "comment_form": comment_form,
+                "liked": liked
+            },
+        )
 
 
-class AddPost(LoginRequiredMixin,
-              generic.CreateView):
+
+class AddPost(LoginRequiredMixin, CreateView):
     """
-    To add a post and get a feddback message.
+    To add a post and get a feedback message.
     """
     model = Post
     template_name = 'add_post.html'
@@ -73,8 +89,21 @@ class AddPost(LoginRequiredMixin,
         if self.request.POST.get('status'):
             form.instance.status = int(self.request.POST.get('status'))
         form.instance.author = self.request.user
-        messages.info(self.request, "Post added and waiting for approval")
-        return super().form_valid(form)
+        # Salva o post
+        response = super().form_valid(form)
+
+        # Adiciona uma mensagem de sucesso
+        messages.success(self.request, self.success_message)
+
+        # Redireciona para a página inicial após adicionar o post
+        return HttpResponseRedirect(reverse_lazy('home'))
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['comment_form'] = CommentForm()
+        return context
+
+
 
 
     
