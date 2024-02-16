@@ -1,12 +1,17 @@
 {% extends "base.html" %}
 
+
+{% load cloudinary %}
+
+{% load crispy_forms_tags %}
+
 {% block content %}
 
 <h1> aqui vamos adicionar um post</h1>
-<form method="POST">
+<form method="POST" enctype="multipart/form-data">
     {% csrf_token %}
     {{ form.as_p }}
-    <button class="btn btn-warning bg-dark text-warning">
+    <button class="btn btn-warning bg-dark text-warning border-0 ">
         Post
     </button>
 {%endblock%}

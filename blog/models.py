@@ -1,6 +1,8 @@
 from django.db import models
 from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
+from django.utils.text import slugify
+from django.urls import reverse
 
 # Create your models here.
 
@@ -27,6 +29,20 @@ class Post(models.Model):
 
     def __str__(self):
         return self.title
+
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(self.title)
+            print(self.slug)
+        return super().save(*args, **kwargs)    
+
+    def get_absolute_url(self):
+        """
+        Returns successful post to related slug url
+        """
+        return reverse('post_detail', kwargs={'slug': self.slug})
+
+       
 
     def number_of_likes(self):
         return self.likes.count()
