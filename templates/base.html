@@ -4,8 +4,10 @@
 <html class="h-100">
 
 <head>
-    <title>CodeStar Blog</title>
-
+    <title>Porto Sips</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;700&display=swap" rel="stylesheet">
@@ -27,21 +29,25 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-dark">
         <div class="container-fluid">
             <a class="navbar-brand" href="{% url 'home' %}">
-                <span class="brand">c<span class="red-o">o</span>de<span class="thin">|star</span></span>
+                <span class="brand">Porto Sips</span>
             </a>
             <button class="navbar-toggler border border-warning" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
-        aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon  bg-warning"></span>
-</button>
->
+                aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon bg-warning"></span>
+            </button>
+    
             <div class="collapse navbar-collapse" id="navbarText">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                
+    
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                     <li class="nav-item">
                         <a class="nav-link active text-warning" aria-current="page" href="{% url 'home' %}">Home</a>
                     </li>
                     {% if user.is_authenticated %}
-                    <li class="nav-item ">
-                        
+                    <li class="nav-item">
+                        <a class="nav-link text-warning" href="">Blog</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link text-warning" href="{% url 'account_logout' %}">Logout</a>
                     </li>
                     {% else %}
@@ -53,12 +59,11 @@
                     </li>
                     {% endif %}
                 </ul>
-                <span class="navbar-text text-warning">
-                    adventures of a software developer
-                </span>
             </div>
         </div>
     </nav>
+    
+    
     
 
     <main class="flex-shrink-0 main-bg">
