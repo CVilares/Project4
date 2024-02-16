@@ -65,7 +65,7 @@ class PostDetail(View):
             },
         )
 
-class NewPost(CreateView):
+class AddPost(CreateView):
     model = Post
-    template_name = "new_post.html"
+    template_name = "add_post.html"
     form_class = PostForm  
