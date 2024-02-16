@@ -24,7 +24,7 @@ body {
 }
 
 .main-bg {
-    background-color: #b5b08c;
+    background-color: #7e890000;
 }
 
 .card {
@@ -62,12 +62,13 @@ body {
 }
 
 .masthead-text {
-    background-color: #445261;
-    color: white;
+    background-color: #343a40;
+    color: #ffc107;
     position: relative;
 }
 
 .masthead-image {
+    background-color: #343a40;
     position: relative;
     overflow: hidden;
 }
