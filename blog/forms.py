@@ -17,6 +17,6 @@ class PostForm(forms.ModelForm):
             'title',
             'author',
             'content',
-            'excerpt',
+            
             'featured_image',
         ]        
