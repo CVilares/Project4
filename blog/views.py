@@ -5,12 +5,15 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.messages.views import SuccessMessageMixin
 from .models import Post, Comment
 from django.contrib import messages
+from django.contrib.auth.models import User
 from django.http import HttpResponseRedirect, Http404
 from django.urls import reverse_lazy
 from .forms import CommentForm, PostForm
 from django.views.generic.edit import UpdateView
 from .forms import UserProfileForm
 from django.contrib.auth.decorators import login_required
+from .models import UserProfile
+
 
 
 
@@ -131,7 +134,12 @@ def edit_profile(request):
     return render(request, 'edit_profile.html', {'form': form})
 
 
-
+class UserProfileView(View):
+    def get(self, request, username):
+        user = User.objects.get(username=username)
+        
+        userProfile = UserProfile.objects.get(user=user)
+        return render(request, 'user_profile.html', {'user': user})
 
 
     
