@@ -1,39 +1,83 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# Porto Sips - Discovering Porto's Hidden Gems
 
-Welcome,
+Welcome to Porto Sips, your ultimate guide to uncovering the best bars in Porto, Portugal.
 
-This is the Code Institute student template for Codeanywhere. If you are using Gitpod then you need [this template](https://github.com/Code-Institute-Org/gitpod-full-template) instead.  We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
+Embark on a journey through the vibrant and historic streets of Porto as we unveil the city's hidden gems and top-rated bars. Whether you're a seasoned traveler or a local enthusiast, Porto Sips is your go-to destination for exploring the rich tapestry of Porto's bar scene.
 
-You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Codeanywhere and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **August 30th, 2023**
+Indulge in the essence of Portuguese culture as you immerse yourself in the eclectic ambiance of Porto's renowned bars. From charming taverns tucked away in cobblestone alleys to sleek and modern lounges boasting panoramic views of the Douro River, Porto Sips offers a curated selection of venues to suit every taste and preference.
 
-## Codeanywhere Reminders
+Join our community of passionate bar aficionados as we share insider tips, personal experiences, and captivating stories from the heart of Porto's nightlife. With Porto Sips, your journey to discovering Porto's finest bars begins here. Cheers to unforgettable experiences and endless adventures in Porto!
 
-To run a frontend (HTML, CSS, Javascript only) application in Codeanywhere, in the terminal, type:
+[View the live project here.](https://berlin-bestbeers.herokuapp.com/)
 
-`python3 -m http.server`
+﻿![Responsive_Design_in_all_gadgets](/static/images/responsive_design.jpg)
 
-A button should appear to click: _Open Preview_ or _Open Browser_.
+## Index – Table of Contents
+* [User Experience (UX)](#user-experience-ux)
+  * [Project Goals:](#project-goals)
+  * [Strategy used:](#strategy-used)
+ * [Agile Workflow](#agile-workflow)
+   * [User stories:](#user-stories)
+      * [EPIC Admin Account management](#epic-admin-account-management)
+      * [EPIC Post](#epic-post) 
+      * [EPIC Like and Dislike](#epic-like-and-dislike) 
+      * [EPIC Edit and Delete comment and posts](#epic-edit-and-delete-comment-and-posts) 
+      * [EPIC UX and UI](#epic-ux-and-ui) 
 
-To run a frontend (HTML, CSS, Javascript only) application in Codeanywhere with no-cache, you can use this alias for `python3 -m http.server`.
+* [Features](#features)
+  * [Installed Features](#installed-features)
+    * [Navigation bar:](#navigation-bar)
+    * [Home page:](#home)
+    * [Blog page](#blog)
+    * [Bars List](#bars_list)
+    * [Register function:](#register-function)
+    * [Login page:](#login-page)
+    * [Logout page:](#logout-page)
+    * [Add a post:](#add-a-post)
+    * [Post detail:](#post-detail)
+    * [Post update:](#post-update)
+    * [Comment update:](#comment-update)
+    * [Django Admin superuser:](#django-admin-superuser)
+    * [System Feedback messages:](#system-feedback-messages)
+    * [Footer:](#footer)
+    * [Meta Data:](#meta-data)
+  * [Features to Implement in the future](#features-to-implement-in-the-future)
+* [Design](#design)
+  * [Wireframes](#wireframes)
+  * [Database Design](#database-design)
+	  * [Classes:](#classes)
+	  * [Site map](#site-map)
+	  * [Colours used](#colours-used)
+	  * [Typography](#typography)
+	  * [Images](#images)
 
-`http_server`
+* [Technologies](#technologies)
+  * [Languages Used:](#languages-used)
+  * [Frameworks and Libraries Used:](#frameworks-and-libraries-used)
+  * [Software and Web Applications Used:](#software-and-web-applications-used)
+* [Tests](#tests)
+  * [Browser tests](#browser-tests)
+  * [Responsiveness](#responsiveness)
+  * [Validators:](#validators)
+    * [W3C Markup Validator:](#w3c-markup-validator)
+    * [W3C CSS Validator:](#w3c-css-validator)
+    * [JSHint:](#jshint)
+    * [PEP8 Online:](#pep8-online)
+    * [Lighthouse test:](#lighthouse-test)
+  * [Tests on user stories](#tests-on-user-stories)
+  * [Further tests](#further-testing)
+  * [Solved bugs](#solved-bugs)
+  * [Known bugs](#known-bugs)
+* [Deployment](#deployment)
+* [Resubmission](#resubmission)
+* [Credits](#credits)
+  * [Code](#code)
+  * [Acknowledgements](#acknowledgements)
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
 
-A button should appear to click: _Open Preview_ or _Open Browser_.
+## User Experience (UX)
 
-In Codeanywhere you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
-
-To log into the Heroku toolbelt CLI:
-
-1. Log in to your Heroku account and go to _Account Settings_ in the menu under your avatar.
-2. Scroll down to the _API Key_ and click _Reveal_
-3. Copy the key
-4. In Codeanywhere, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
-
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidentally make it public then you can create a new one with _Regenerate API Key_.
-
----
-
-Happy coding!
+### Project Goals:
+The main goal of this project is to design a blog for craft beer enthusiasts living in or travelling through Berlin, Germany. 
+This website should allow a CRUD functionality, where each user can register an account, login into that, logout, create his/her own visits to craft beer bars around the city, as well as read, comment,and delete posts and comments, without the need for an administrator to be present. 
+The user should have full control over his own posts and comments.
