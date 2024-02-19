@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
 from django.utils.text import slugify
 from django.urls import reverse
+from django.views.generic.edit import UpdateView
 
 # Create your models here.
 
@@ -61,5 +62,15 @@ class Comment(models.Model):
         ordering = ['created_on']
 
     def __str__(self):
-        return f"Comment {self.body} by {self.name}"                                             
+        return f"Comment {self.body} by {self.name}" 
+
+
+class UserProfile(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    bio = models.TextField(blank=True)
+    avatar = CloudinaryField('image', default='default_avatar')
+
+    def __str__(self):
+        return self.user.username + "'s Profile"
+
     

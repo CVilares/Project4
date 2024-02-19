@@ -3,11 +3,15 @@ from django.views import generic, View
 from django.views.generic.edit import CreateView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.messages.views import SuccessMessageMixin
-from .models import Post
+from .models import Post, Comment
 from django.contrib import messages
 from django.http import HttpResponseRedirect, Http404
 from django.urls import reverse_lazy
 from .forms import CommentForm, PostForm
+from django.views.generic.edit import UpdateView
+from .forms import UserProfileForm
+from django.contrib.auth.decorators import login_required
+
 
 
 class PostList(generic.ListView):
@@ -114,7 +118,17 @@ class DeletePostView(generic.DeleteView):
     success_url = reverse_lazy('home')
     
 
-    
+@login_required
+def edit_profile(request):
+    user_profile = request.user.userprofile
+    if request.method == 'POST':
+        form = UserProfileForm(request.POST, request.FILES, instance=user_profile)
+        if form.is_valid():
+            form.save()
+            return redirect('profile')
+    else:
+        form = UserProfileForm(instance=user_profile)
+    return render(request, 'edit_profile.html', {'form': form})
 
 
 

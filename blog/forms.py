@@ -1,4 +1,4 @@
-from .models import Comment, Post
+from .models import Comment, Post, UserProfile
 from django import forms
 
 
@@ -20,3 +20,8 @@ class PostForm(forms.ModelForm):
             
             'featured_image',
         ]        
+
+class UserProfileForm(forms.ModelForm):
+    class Meta:
+        model = UserProfile
+        fields = ['bio', 'avatar']       
