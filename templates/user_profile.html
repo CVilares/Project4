@@ -1,12 +1,35 @@
-<!DOCTYPE html>
-<html lang="en">
+{{% extends 'base.html' %} 
+
+{% load crispy_forms_tags %}
+
 <head>
-    <meta charset="UTF-8">
     <title>User Profile</title>
 </head>
 <body>
-    <h1>User Profile</h1>
-    <p>Username: {{ user.username }}</p>
-    <!-- Display other user profile information -->
+    {% block content %}
+    <div class="container">
+        <div class="row justify-content-center text-center">
+            <div class="col-md-6">
+                
+                <br>
+                <h1 class="text-center text-warning">User Profile</h1>
+                <p><strong>Username:</strong> {{ user.username }}</p>
+                <p><strong>Email:</strong> {{ user.email }}</p>
+                
+                <!-- Display other user profile information -->
+                <!-- Add more profile fields here as needed -->
+                <!--<p>First Name: {{ user.first_name }}</p>
+                <p>Last Name: {{ user.last_name }}</p> -->
+                <!-- Add buttons to navigate back to the home page or cancel -->
+                <div class="text-center">
+                    <a href="{% url 'home' %}" class="btn btn-lg btn-primary bg-dark text-warning">Back to Home</a>
+                    <a href="{{ request.META.HTTP_REFERER }}" class="btn btn-lg btn-secondary btn-primary bg-dark text-warning">Cancel</a>
+                </div>
+                {% endblock %}
+            </div>
+        </div>
+    </div>
 </body>
 </html>
+
+

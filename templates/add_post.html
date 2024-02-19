@@ -6,7 +6,7 @@
 {% block content %}
 <div class="container mt-5">
     <div class="row justify-content-center">
-        <div class="col-md-6">
+        <div class="col-md-7">
             <h1 class="text-center mb-4">Add your post here!</h1>
             <form method="POST" enctype="multipart/form-data">
                 {% csrf_token %}
@@ -17,7 +17,8 @@
                 </div>
                 <div class="row mt-4 justify-content-center">
                     <div class="col-md-8 text-center"> 
-                        <button type="submit" class="btn bg-dark text-warning">Post</button>
+                        <button type="submit" class="btn btn-lg bg-dark text-warning">Post</button>
+                        <a href="{{ request.META.HTTP_REFERER }}" class="btn btn-lg btn-secondary bg-dark text-warning">Cancel</a>
                     </div>
                 </div>
             </form>
