@@ -189,6 +189,302 @@ As a user, I can see a favicon on the tab of the site so that I can easily recog
 <img src="static/images/user_name.png">
 
 
+#### Classes
+The Post class serves as the backbone of the blog, allowing users to share their experiences and insights about Porto Sips blog. Here's a detailed description of the model:
+
+Title (CharField): Each post begins with a title, providing a concise overview of the user's experience or topic of discussion. This field is essential for quickly identifying the subject matter of the post.
+
+Slug (SlugField): The slug field generates a unique and URL-friendly representation of the title. It ensures that each post has a distinct and easily accessible URL, facilitating navigation and search engine optimization.
+
+Author (ForeignKey to User): This field establishes a connection between the post and its author, who is a registered user of the blog. It enables users to take ownership of their contributions and allows for attribution of content.
+
+Featured Image (CloudinaryField): The featured image field allows users to include visually engaging images that accompany their posts. It is implemented using CloudinaryField, providing seamless integration with Cloudinary for efficient image storage and management.
+
+Excerpt (TextField): The excerpt field provides a brief summary or teaser of the post's content. It offers readers a glimpse into the post's main themes or highlights, encouraging them to delve deeper into the full article.
+
+Content (TextField): The content field contains the main body of the post, where users can share their detailed experiences, insights, and opinions about the craft beer bars in Berlin. It accommodates longer-form text content, allowing users to express themselves fully.
+
+Created On (DateTimeField): This field records the date and time when the post was created. It enables users to track the timeline of posts and provides context regarding the recency of each contribution.
+
+Status (IntegerField): The status field indicates the current state of the post, such as draft, published, or archived. It allows users to manage the visibility and accessibility of their posts, providing flexibility in content management.
+
+Likes (ManyToManyField to User): The likes field enables users to express their appreciation or agreement with a post by liking it. It establishes a many-to-many relationship with the User model, allowing multiple users to like a post, fostering engagement and interaction within the community. 
+
+|Post|         |
+|--|--|
+| type |  field name  |
+| CharField  | title   |
+| slugfield  | slug  |
+| ForeignKey | author |
+| DateTimeField | updated_on |
+| TextField | content |
+| CloudinaryField | featured_image |
+| TextField  | excerpt |
+| DateTimeField | created_on|
+| IntegerField | status |
+| DateTimeField | created_on|
+| ManyToManyField | Likes |
+
+Post (ForeignKey to Post): This field establishes a relationship between the comment and the post it pertains to. Utilizing a ForeignKey, each comment is associated with a specific post, fostering contextual relevance and organization.
+
+Parent Comment (ForeignKey to self): The parent_comment field allows for hierarchical structuring of comments by linking a comment to its parent comment, if applicable. This feature facilitates threaded discussions and nested replies within comment threads.
+
+Name (CharField): The name attribute represents the author's name or pseudonym associated with the comment. It provides attribution to the comment creator and aids in distinguishing between different contributors.
+
+Email (EmailField): This field captures the email address of the comment author. While optional, it offers a means of contact or verification for comment moderation purposes.
+
+Body (TextField): The body attribute contains the textual content of the comment, where users can express their thoughts, opinions, or reactions to the post. It accommodates varying lengths of text, allowing users to articulate their feedback comprehensively.
+
+Created On (DateTimeField): Recording the date and time of comment creation, the created_on field provides temporal context to comments. It facilitates chronological ordering and helps users gauge the recency of comments within a post.
+
+Approved (BooleanField): The approved attribute signifies whether a comment has been reviewed and approved for publication. By default, comments are marked as unapproved, requiring moderation before becoming visible to other users.
+
+|Comment|         |
+|--|--|
+| type |  field name  |
+| ForeignKey | post |
+| CharField| name|
+| EmailField| email|
+| TextField| body |
+| DateTimeField | created_on|
+| BooleanField| approved|
+
+The user profile template is designed to display information about a specific user's profile on the Porto Sips Blog website. It extends the base HTML template to maintain consistency with the overall website design.
+
+The profile information displayed includes the following:
+
+Username: Displays the username of the user whose profile is being viewed.
+Email: Shows the email address associated with the user's account.
+Additional profile fields can be added as needed by uncommenting the relevant lines of code and inserting the appropriate template variables.
+
+
+
+|User Profile|         |
+|--|--|
+| type |  field name  |
+| OneToOneField |post|
+| TextField| bio|
+| CloudinaryField| avatar|
+
+**Likes**, **Dislikes** are also created as feature for registered users.
+
+## Features
+
+#### Navigation bar:
+The navigation bar utilizes Bootstrap's "fixed-top" class, ensuring that it remains pinned to the top of the webpage regardless of scrolling. This means that as users navigate through the page content, the navigation bar remains visible at the top of the browser window, providing constant access to essential navigation links and options. By employing this feature, users can easily access site functionality and move between different sections of the website without having to scroll back to the top to access the navigation menu.
+
+The navigation items appear according to the user status. If logged in, the user can see the Home /Add Post / Logout / Username. This last includes a Font Awesome icon (fas fa-user):
+
+﻿![Navbar](/static/images/navbar2.png)
+
+Otherwise, the following items will appear: Home / Register / Login
+
+![Navbar](/static/images/navbar.png)
+
+For small devices the navbar is collapsed into a "hamburger menu", and turns to a fully responsive navigation bar. Here the example for the navbar tested on iPhone 8 Plus viewport:
+
+﻿![Navbar](/static/images/hamburguer.png)
+
+
+##### Home page - Posts section:
+
+On the homepage, just below the navbar, users can find a section showcasing the six most recent posts contributed by other users. This section is meticulously designed using Bootstrap's grid layout, presenting posts in an organized and visually appealing manner.
+
+Each post in this section features:
+
+A captivating featured image: Users have the opportunity to upload an image that best represents their post. If no image is uploaded, a placeholder image featuring various craft beers will be displayed.
+Author details: The name of the user who authored the post is prominently displayed.
+Bar name or Post title: The title of the post is displayed, with a maximum of 30 characters to maintain brevity and clarity.
+Post content snippet: A brief excerpt of the post content is provided to offer users a glimpse into the topic being discussed.
+Posting date: The date when the post was created is clearly indicated, allowing users to discern the recency of each contribution.
+Like count: An icon representing a heart (far fa-heart) followed by the number of likes the post has received is displayed, indicating the level of user engagement.
+Comment count: An icon representing comments (far fa-comments) followed by the number of comments on the post is showcased, providing insights into the level of discussion around the post.
+By clicking on any post, users are seamlessly directed to the detailed page dedicated to that specific post, where they can explore the content further and engage with other users through comments and likes. This section serves as a dynamic showcase of recent updates, encouraging users to stay informed and engaged with the community.
+
+![Home_page_posts](/static/images/home_page.png)
+
+#### Register function:
+
+All users can register theirselves to start to interact with the website and/or other users. 
+To access the registration mode, the user can use the link through the navbar.
+
+To create an user account, an username, a password and an optional email registration has to be provided.
+
+﻿![Bars_List](/static/images/register_2.png)
+
+#### Login page:
+
+The website is accessible to all users, offering basic functionalities such as viewing posts. However, registered and logged-in users enjoy full interactivity, including the ability to create and delete their own posts, comment on others' posts, and like content. This personalized experience enhances engagement and fosters a sense of community among users. 
+
+The Login access can be found here:
+
+﻿![Login_page](/static/images/login_2.png)
+ 
+﻿![How_to_register](/static/images/login_button.png)
+
+
+
+#### Logout page:
+
+Users can access the Logout page through the navbar link available while logged in. Clicking on Logout instantly logs them out of their account and redirects them back to the Home page, ensuring a seamless transition between sessions.
+
+﻿![How_to_Logout](/static/images/logout_2.png)
+![How_to_Logout](/static/images/logout_3.png)
+
+
+Clicking ****"Cancel"** button, the user will be redirected to the previously visited page. 
+
+#### Add a Post
+
+Registered users have the ability to create new content, specifically posts about bars, which can be accessed via the navigation bar. This feature is exclusive to registered users who have chosen to sign up for the site. By clicking on the relevant navbar link, users can share their experiences at a bar or recommend one, accompanied by a photo of the bar taken by them. This functionality is made possible through the utilization of the SummernoteWidget.
+
+﻿![Add_Post](/static/images/add_post.png)
+
+The adding post feature is the same to all users and has the fields:
+Title, Content, Excerpt (to appears at the Bars List), Image upload button (only one photo each post can be uploaded), and the buttons **"Post"** / **"Cancel"**.
+
+In case that the user doesn't upload any photos, a default placeholder photo will be displayed. 
+
+Upon completion of all fields in the post creation form, users can submit their post by clicking on the "Submit" button. Once submitted, the post will be stored in the database as a draft and await approval or rejection by the admin. The purpose of this approval or rejection process is to prevent duplicate entries of bars. Consequently, the "Bars List" can serve as a curated list or guide showcasing the best bars in Porto. Users also have the option to click on "cancel" if they decide not to proceed with submitting their post. 
+
+#### Post detail
+
+When a user clicks on a post, they are directed to the Post Detail page, where they encounter a headline displaying the name of the bar or post. Below the headline, the name of the post author and the date of posting are displayed. On larger screens, the photo uploaded by the author is showcased alongside the headline.
+
+For logged-in users, interaction options such as commenting and liking/disliking are available. When a logged-in user decides to comment on a post, they are presented with a text field to write their comment and a button labeled "Submit" to submit their input.
+
+﻿![Post_Detail](/static/images/detail.png)
+
+For non-logged-in users, the Post Detail page and comments are visible, but the ability to comment and like is disabled. These users have the option to read all posts, navigate the entire website, and register to gain access to interactive features.
+
+All users, regardless of their logged-in status, can view the number of likes and comments within a post. However, interaction with these elements is restricted based on the user's login status.
+
+Font Awesome icons, specifically the "fa-heart" and "fa-comment" icons, are utilized to visually represent the liking and commenting functionalities. When clicked on, the like icon changes color to indicate user interaction.
+
+#### User Profile
+
+
+The user profile section provides both logged-in and non-logged-in users with the ability to view certain details about the post author, such as their username and email. This feature offers a level of transparency and interaction within the community, allowing users to connect with the authors of posts they find interesting or informative.
+
+While the current implementation provides basic information about the post author, there is potential for further enhancements and expansions in the future. For example, additional profile fields could be included to provide more context or background about the author, such as their bio, avatar, social media links, or other relevant information. This could enrich the user experience and foster greater engagement and connection among users within the community.
+
+![Sign_in_message](/static/images/user_profile.png)
+
+#### System Feedback messages:
+
+ this Blog incorporates system or flash messages as a means of providing users with immediate feedback regarding their actions on the website. These messages are triggered by specific user actions and are designed to inform users of the outcome of their actions.
+
+These messages appear temporarily on the screen for a duration of three seconds before being automatically removed. They serve as quick, concise notifications that inform users about the completion of their actions, ensuring a smooth and responsive user experience. 
+
+Here some examples :
+
+﻿![Sign_in_message](/static/images/warning.png)
+ 
+﻿![Sign_out_message](/static/images/warnings.png)
+
+##### Favicon:
+
+Favicon - the favicon was created with https://realfavicongenerator.net/
+
+#### Footer:
+
+The webiste Footer appears in all pages and is featured at the bottom. 2 sections are used to build the Fotter:
+
+On top, a link to the github of the blog creator.
+
+Below the Social Media links, including Font Awesome icons of Facebook, Twitter, Instagram and Youtube. The social media are actually being connect the home page of each social media, and it was built like this to shows the possibility of connection. 
+
+﻿![Footer](/static/images/footer_2.png)
+
+## Technologies
+
+### Languages Used:
+
+  - HTML5
+  - CSS3
+  - JavaScript
+  - Python
+
+### Frameworks and Libraries Used:
+
+  - [Bootstrap:](https://getbootstrap.com/) Bootstrap CSS Framework used for styling and to build responsive web pages.
+  - [Cloudinary:](https://cloudinary.com/) Used to store all blog images and uploaded images.
+  - [Django:](https://www.djangoproject.com/) Main Python framework used in the development.
+  - [Django Allauth:](https://django-allauth.readthedocs.io/en/latest/index.html) Used for authentication and account registration.
+  - [Django Crispy Forms:](https://django-crispy-forms.readthedocs.io/en/latest/) Used to simplify the rendering of Django forms.
+  - [dj_database_url:](https://pypi.org/project/dj-database-url/) Used to allow database urls to connect to the postgres database.
+  - [ElephantSQL:](https://www.elephantsql.com/) Used as the website's database.
+  - [Gunicorn:](https://gunicorn.org/) Green Unicorn, used as the Web Server to run Django on Heroku.
+  - [Summernote:](https://github.com/summernote/django-summernote) To provide a WYSIWYG editor for customizing new blog content and add images.
+
+### Software and Web Applications Used:
+
+  - [Am I Responsive:](http://ami.responsivedesign.is) To chek the responsiveness of the website.
+  - [Balsamiq:](https://balsamiq.com/) Used to create the wireframes.
+  - [Chrome DevTools:](https://developer.chrome.com/docs/devtools/) Used to test the response on different screen sizes, debugging and to generate a Lighthouse report to analyze page load.
+  - [Font Awesome:](https://fontawesome.com/) Used to add icons for aesthetic and UX purposes.
+  - [Git:](https://git-scm.com/) Git was used for version control by utilizing the Gitpod terminal to commit to Git and Push to GitHub.
+  - [GitHub:](https://github.com/) GitHub is used to store the projects code after being pushed from Git and to create the Kanban board used for this project.
+  - [Google Fonts:](https://fonts.google.com/) 'Shadows Into Light'
+  - [Heroku:](https://www.heroku.com/) For deployment and hosting of the application.
+  - [HTML Validator:](https://validator.w3.org/) Check your code for HTML validation.
+  - [JSHint:](https://jshint.com/) Check code for JavaScript validation.
+  - [W3 CSS Validator:](https://jigsaw.w3.org/css-validator/) Check your code for CSS validation.
+  
+
+## Tests
+
+### Responsiveness and browser testing
+
+The app has been tested by friends and family who opened the app on different screen sizes like mobile phones, tablets and laptops. The tests were done using Chrome, Firefox and Edge.
+
+### Validators:
+
+#### W3C CSS Validator:
+
+To validate the CSS style of the project, the W3C CSS Validator Services were used and no errors were highlighted.
+
+﻿![CSS_Validator](/static/images/css_test.png)
+
+#### JSHint:
+
+JSHint was used to validate the JavaScript - no errors showed.
+
+﻿![Jshint](/static/images/jshint.png)
+
+#### PEP8 CI Python Linther:
+
+PEP8 CI Python Linther (Python validator) used for these thests. The code passed without any errors on all files tested:
+
+  - admin.py
+
+﻿![Admin_py_test](/static/images/admin_py_test.png)
+
+  - forms.py
+
+﻿![Forms_url_py_test](/static/images/forms_urls_py.png)
+
+  - models.py
+
+﻿![Models_py_test](/static/images/models_py.png)
+
+  - urls.py
+
+﻿![URLs_py-test](/static/images/urls_py.png)
+
+  - views.py
+
+﻿![Views_py_test](/static/images/views_py.png)
+
+#### Lighthouse Test:
+
+The Lighthouse testing of Chrome develeper tools confirmed that although the all images were used in original sizes, the website, its colours and fonts provided an easy-read and accessible website. The performance of 72 can be easily imroved with the resize of all images. 
+
+﻿![Ligthouse_test](/static/images/lighthouse.png)
+
+
+
+
 
 
 
