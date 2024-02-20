@@ -10,7 +10,7 @@ Join our community of passionate bar aficionados as we share insider tips, perso
 
 [View the live project here.](https://berlin-bestbeers.herokuapp.com/)
 
-﻿![Responsive_Design_in_all_gadgets](/static/images/responsive_design.jpg)
+﻿![Responsive_Design_in_all_gadgets](/static/images/responsive_design.png)
 
 ## Index – Table of Contents
 * [User Experience (UX)](#user-experience-ux)
@@ -78,6 +78,87 @@ Join our community of passionate bar aficionados as we share insider tips, perso
 ## User Experience (UX)
 
 ### Project Goals:
-The main goal of this project is to design a blog for craft beer enthusiasts living in or travelling through Berlin, Germany. 
-This website should allow a CRUD functionality, where each user can register an account, login into that, logout, create his/her own visits to craft beer bars around the city, as well as read, comment,and delete posts and comments, without the need for an administrator to be present. 
-The user should have full control over his own posts and comments.
+This blog is dedicated to exploring the vibrant bar scene in Porto city, Portugal. Our main objective is to provide a platform where users can share their experiences, recommendations, and insights about various bars across the city. The website offers comprehensive CRUD functionality, empowering registered users to contribute content, engage with posts, and manage their own contributions seamlessly. Users can post comments, upload photos, express their appreciation by liking posts, and retain control over their own content, including the ability to delete their own posts. Additionally, the admin maintains oversight and control over all user-generated content, ensuring the integrity and quality of the blog.
+
+### User stories:
+
+- #### EPIC Admin Account management
+User Story: Account Registration and/or Login
+As a user, I can register an account and/or log in so that I can update my visited beer bars, comment on other posts, and like them.
+
+User Story: Manage All Posts
+As an admin, I can create, read, update, and delete posts and comments so that I can manage the content of my blog and avoid improper content.
+
+User Story: Create Drafts
+As an admin, I can create drafts of posts so that I can finalize my post after a while.
+User Story: Approve Comments
+As an admin, I can approve or deny comments so that I can manage which comments can appear on my blog.
+
+User Story: Approve Profiles
+As an admin, I can approve or deny profiles.
+
+- ### EPIC Post
+USER STORY - Click on a post:
+
+As a user, I can click on a post so that I can read it and interact with it.
+
+USER STORY - Create a new post:
+
+As a user, I can create a new post or multiple posts so that I can share my visit to a bar in Porto with others.
+
+USER STORY - View all posts:
+
+As a user, I can view all posts on the blog so that I can choose which bar to visit.
+
+USER STORY - Manage posts with photos:
+
+As a registered user, I can add and delete posts with accompanying photos so that I can share my experiences and memories of visiting bars in the city with others, and have control over the content I publish on the blog.
+
+USER STORY - Like a post:
+
+As a user, I can like a post so that I can express my appreciation or agreement with the content shared by others.
+
+USER STORY - Delete own posts as a registered user:
+
+As a registered user, I can delete my own posts so that I can manage my content and remove posts that I no longer want to be visible.
+
+USER STORY - Comment on posts:
+
+As a registered user, I can comment on posts so that I can engage with other users and share my thoughts or feedback on the content.
+
+#### EPIC Comment
+USER STORY - View Comments:
+
+As a Site User, I can view comments on an individual post so that I can read the conversation.
+
+USER STORY - Comment on a Post:
+
+As a Site User, I can leave comments on a post so that I can be involved in the conversation.
+
+#### EPIC User Profile
+USER STORY - View Profile Details:
+
+As a Site User i can check the post author details.
+
+#### EPIC UX and UI
+USER STORY - Responsiveness:
+As a user, I can open the site on all my devices (laptop, mobile, and iPad) so that I can access the site anytime.
+
+USER STORY - Design:
+As a user, I can have a very positive impression of the site so that I always want to be connected there.
+
+USER STORY - System Messages:
+As a user, I can receive system messages when interacting with the site so that I understand how the website behaves.
+
+USER STORY - Favicon:
+As a user, I can see a favicon on the tab of the site so that I can easily recognize the website among all my open tabs.
+
+
+
+
+
+
+
+
+
+
