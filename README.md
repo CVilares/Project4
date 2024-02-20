@@ -8,7 +8,7 @@ Indulge in the essence of Portuguese culture as you immerse yourself in the ecle
 
 Join our community of passionate bar aficionados as we share insider tips, personal experiences, and captivating stories from the heart of Porto's nightlife. With Porto Sips, your journey to discovering Porto's finest bars begins here. Cheers to unforgettable experiences and endless adventures in Porto!
 
-[View the live project here.](https://berlin-bestbeers.herokuapp.com/)
+[View the live project here.](https://portosips-f350ecb855c2.herokuapp.com/)
 
 ﻿![Responsive_Design_in_all_gadgets](/static/images/responsive_design.png)
 
