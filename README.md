@@ -15,61 +15,51 @@ Join our community of passionate bar aficionados as we share insider tips, perso
 ## Index – Table of Contents
 * [User Experience (UX)](#user-experience-ux)
   * [Project Goals:](#project-goals)
-  * [Strategy used:](#strategy-used)
- * [Agile Workflow](#agile-workflow)
-   * [User stories:](#user-stories)
+  * [User stories:](#user-stories)
       * [EPIC Admin Account management](#epic-admin-account-management)
       * [EPIC Post](#epic-post) 
-      * [EPIC Like and Dislike](#epic-like-and-dislike) 
-      * [EPIC Edit and Delete comment and posts](#epic-edit-and-delete-comment-and-posts) 
+      * [EPIC Comment](#epic-comment) 
+      * [EPIC User Profile](#epic-user-profile) 
       * [EPIC UX and UI](#epic-ux-and-ui) 
+
+* [Wireframes](#wireframes)
 
 * [Features](#features)
   * [Installed Features](#installed-features)
     * [Navigation bar:](#navigation-bar)
     * [Home page:](#home)
-    * [Blog page](#blog)
-    * [Bars List](#bars_list)
     * [Register function:](#register-function)
     * [Login page:](#login-page)
     * [Logout page:](#logout-page)
     * [Add a post:](#add-a-post)
     * [Post detail:](#post-detail)
-    * [Post update:](#post-update)
-    * [Comment update:](#comment-update)
-    * [Django Admin superuser:](#django-admin-superuser)
+    * [User profile:](#user-profile)
     * [System Feedback messages:](#system-feedback-messages)
     * [Footer:](#footer)
-    * [Meta Data:](#meta-data)
-  * [Features to Implement in the future](#features-to-implement-in-the-future)
-* [Design](#design)
-  * [Wireframes](#wireframes)
-  * [Database Design](#database-design)
-	  * [Classes:](#classes)
-	  * [Site map](#site-map)
+    
+    
+* [Database Design:](#database-design)
+    * [Models](#models)
 	  * [Colours used](#colours-used)
 	  * [Typography](#typography)
-	  * [Images](#images)
+	  
 
 * [Technologies](#technologies)
   * [Languages Used:](#languages-used)
   * [Frameworks and Libraries Used:](#frameworks-and-libraries-used)
   * [Software and Web Applications Used:](#software-and-web-applications-used)
 * [Tests](#tests)
-  * [Browser tests](#browser-tests)
-  * [Responsiveness](#responsiveness)
+  
+  * [Responsiveness and browser testing](#responsiveness-and-browser-testing)
   * [Validators:](#validators)
     * [W3C Markup Validator:](#w3c-markup-validator)
     * [W3C CSS Validator:](#w3c-css-validator)
     * [JSHint:](#jshint)
     * [PEP8 Online:](#pep8-online)
     * [Lighthouse test:](#lighthouse-test)
-  * [Tests on user stories](#tests-on-user-stories)
-  * [Further tests](#further-testing)
-  * [Solved bugs](#solved-bugs)
-  * [Known bugs](#known-bugs)
+  
 * [Deployment](#deployment)
-* [Resubmission](#resubmission)
+
 * [Credits](#credits)
   * [Code](#code)
   * [Acknowledgements](#acknowledgements)
@@ -189,7 +179,8 @@ As a user, I can see a favicon on the tab of the site so that I can easily recog
 <img src="static/images/user_name.png">
 
 
-#### Classes
+
+#### Models:
 The Post class serves as the backbone of the blog, allowing users to share their experiences and insights about Porto Sips blog. Here's a detailed description of the model:
 
 Title (CharField): Each post begins with a title, providing a concise overview of the user's experience or topic of discussion. This field is essential for quickly identifying the subject matter of the post.
@@ -268,6 +259,14 @@ Additional profile fields can be added as needed by uncommenting the relevant li
 
 **Likes**, **Dislikes** are also created as feature for registered users.
 
+### Colours used:
+
+Bootstrap dark and warning
+
+### Typography
+
+Shadows Into Light
+
 ## Features
 
 #### Navigation bar:
@@ -286,7 +285,7 @@ For small devices the navbar is collapsed into a "hamburger menu", and turns to 
 ﻿![Navbar](/static/images/hamburguer.png)
 
 
-##### Home page - Posts section:
+#### Home page:
 
 On the homepage, just below the navbar, users can find a section showcasing the six most recent posts contributed by other users. This section is meticulously designed using Bootstrap's grid layout, presenting posts in an organized and visually appealing manner.
 
@@ -368,7 +367,7 @@ The user profile section provides both logged-in and non-logged-in users with th
 
 While the current implementation provides basic information about the post author, there is potential for further enhancements and expansions in the future. For example, additional profile fields could be included to provide more context or background about the author, such as their bio, avatar, social media links, or other relevant information. This could enrich the user experience and foster greater engagement and connection among users within the community.
 
-![Sign_in_message](/static/images/user_profile.png)
+![User Profile](/static/images/user_profile.png)
 
 #### System Feedback messages:
 
@@ -440,11 +439,15 @@ The app has been tested by friends and family who opened the app on different sc
 
 ### Validators:
 
+#### W3C Markup Validator:
+
+![CSS_Validator](/static/images/markup_validator.png)
+
 #### W3C CSS Validator:
 
 To validate the CSS style of the project, the W3C CSS Validator Services were used and no errors were highlighted.
 
-﻿![CSS_Validator](/static/images/css_test.png)
+﻿![CSS_Validator](/static/images/css.png)
 
 #### JSHint:
 
@@ -462,25 +465,90 @@ PEP8 CI Python Linther (Python validator) used for these thests. The code passed
 
   - forms.py
 
-﻿![Forms_url_py_test](/static/images/forms_urls_py.png)
+﻿![Forms_url_py_test](/static/images/forms_py.png)
 
   - models.py
 
-﻿![Models_py_test](/static/images/models_py.png)
+﻿![Models_py_test](/static/images/models_py_test.png)
 
   - urls.py
 
-﻿![URLs_py-test](/static/images/urls_py.png)
+﻿![URLs_py-test](/static/images/urls_py_test.png)
 
   - views.py
 
-﻿![Views_py_test](/static/images/views_py.png)
+﻿![Views_py_test](/static/images/views_py_test.png)
 
 #### Lighthouse Test:
 
-The Lighthouse testing of Chrome develeper tools confirmed that although the all images were used in original sizes, the website, its colours and fonts provided an easy-read and accessible website. The performance of 72 can be easily imroved with the resize of all images. 
+ ﻿![Ligthouse_test](/static/images/lighthouse.png)
 
-﻿![Ligthouse_test](/static/images/lighthouse.png)
+ ## Deployment
+
+The application was deployed to Heroku and the databese stored at ElephantSQL. The steps to deploy are as follows:
+
+  - Login to [Heroku](https://dashboard.heroku.com/apps) dashboard to get an overview of installed apps.
+  - Click on New => Create new app.
+  - Choose a name for your application (must be unique) and enter your location.
+  - Click on Create app.
+  - After creating your new application, navigate and click on the Resources tab.
+  - In the Add-ons search bar enter Heroku Postgres => Select Heroku Postgres.
+  - A pop-up window till appear, choose Plan name Hobby Dev - Free.
+  - Click on Submit order form.
+  - Navigate to the Settings tab => click on Reveal Config Vars.
+  - Copy the DATABASE_URL url value to the clipboard.
+  - In GitPod => Create a new env.py file on top level directory.
+  - In the env.py file:
+    - Set environment variables: os.environ[”DATABASE_URL"] = "Paste in Heroku DATABASE_URL Link”
+    - Add in secret key: os.environ[”SECRET_KEY"] = "Make up your own randomSecretKey”
+  - In Heroku => Navigate to the Settings tab => click on Reveal Config Vars.
+  - Add SECRET_KEY to Config Vars with the randomSecretKey value previously chosen.
+  - In the settings.py file:
+    - Remove the insecure secret key and replace it with: SECRET_KEY = os.environ.get(’SECRET_KEY')
+    - Update to use the DATABASE_URL: dj_database_url.parse(os.environ.get(”DATABASE_URL"))
+  - Save all files and Make Migrations: python3 manage.py migrate
+  - Login to [Cloudinary](https://cloudinary.com/) and navigate to the Cloudinary Dashboard.
+  - Copy your CLOUDINARY_URL API Environment Variable to the clipboard.
+  - In the env.py file:
+    - Add Cloudinary URL: os.environ["CLOUDINARY_URL"] = ”cloudinary://paste in API Environment Variable”
+  - In Heroku => Navigate to the Settings tab => click on Reveal Config Vars.
+  - Add ’CLOUDINARY_URL’ to Config Vars with the in API Environment Variable value.
+  - In the settings.py file:
+    - Add Cloudinary Libraries to installed apps (note: order is important) ’cloudinary_storage',  ’django.contrib.staticfiles', ’cloudinary',
+    - Add the following code below STATIC_URL = ’/static/' to use Cloudinary to store media and static files:
+      - STATIC_url = '/static/'
+      - STATICFILES_STORAGE = ’cloudinary_storage.storage.StaticHashedCloudinaryStorage'
+      - STATICFILES_DIRS = [os.path.join(BASE_DIR, ’static')]
+      - STATIC_ROOT = os.path.join(BASE_DIR, ’staticfiles')
+      - MEDIA_URL = '/media/'
+      - DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+    - Link file to the templates directory in Heroku: TEMPLATES_DIR = os.path.join(BASE_DIR, ’templates')
+    - Change the templates directory to: TEMPLATES_DIR: 'DIRS': [TEMPLATES_DIR],
+    - Add Heroku Hostname to ALLOWED_HOSTS: ALLOWED_HOSTS = [”Your_Project_name.herokuapp.com”, ”localhost”]
+  - Create 3 new folders on top level directory: media, static, templates
+  - Create a Procfile on the top level directory
+  - In the Procfile file:
+    - Add the following code with your project name: web: gunicorn PROJ_NAME.wsgi
+  - In the terminal: Add, Commit and Push.
+  - In Heroku navigate to the Deploy tab => click on Deploy Branch.
+  - When build process is finished click on Open App to visit the live site.
+  - After deployed, the database was migrated to ElephandSQL, following the steps provided by Code Institute.
+
+## Credits
+
+  - A heartfelt appreciation goes out to all the bars acknowledged and highlighted by the fabricated users enlisted for testing purposes. We extend our gratitude for their participation.
+  - [Am I Responsive:](http://ami.responsivedesign.is) To check responsiveness of the website.
+  - [Balsamiq:](https://balsamiq.com/) To create all wireframes.
+  - [Bootstrap:](https://getbootstrap.com/docs/4.6/getting-started/introduction/) To style and to build the webpage.
+  - [Code Institute Slack Community:](https://app.slack.com/) The community was very helpful in 100% of the time.
+  - [Code Institute Tutor Support:](https://app.slack.com/) For help and support.
+  - [Django documentation:](https://docs.djangoproject.com/en/4.1/) Everything you need to know about Django.
+  - [Stack Overflow:](https://stackoverflow.com) For troubleshooting and FAQ.
+  - [W3Schools:](https://www.w3schools.com) Online Web Tutorials.
+
+### Acknowledgements
+
+  - Tutors, friends, family
 
 
 
