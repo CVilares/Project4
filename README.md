@@ -154,6 +154,41 @@ USER STORY - Favicon:
 As a user, I can see a favicon on the tab of the site so that I can easily recognize the website among all my open tabs.
 
 
+### Wireframes
+
+* Home
+
+<img src="static/images/home.png">
+
+* Register
+
+<img src="static/images/register.png">
+
+* After Register
+
+<img src="static/images/after_register.png">
+
+* Post Detail
+
+<img src="static/images/post_detail.png">
+
+* Sign In
+
+<img src="static/images/signin.png">
+
+* Logout
+
+<img src="static/images/logout.png">
+
+* Add your Post
+
+<img src="static/images/add_your_post.png">
+
+* User Profile
+
+<img src="static/images/user_name.png">
+
+
 
 
 
