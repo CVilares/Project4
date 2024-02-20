@@ -32,6 +32,8 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
+X_FRAME_OPTIONS = 'SAMEORIGIN'
+
 ALLOWED_HOSTS = ['8000-cvilares-project4-wefwoncxho6.ws-eu108.gitpod.io', 'portosips-f350ecb855c2.herokuapp.com' ]
 
 
